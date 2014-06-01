@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head>
+    <!-- <link type="text/css" rel="stylesheet" href="/static/css/main.css" /> --!>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> 
+</head>
+  <body>
+  <button id="search">Search</button>
+  <input id="query" type='text' placeholder='Search Terms Here' />
+|
+  <button><a href='/add'>Add</a></button>
+
+  <a href="{{ url|safe }}">{{ url_linktext }}</a>
+  <div>
+    <table id="results">
+    </table>
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/lunr.min.js"></script>
+    <script type="text/javascript">
+    function getR(id) {
+      for(var j = 0;j < receipts.length; j++)
+      {
+        if(receipts[j].key == id)
+        {
+          return "Total:" + receipts[j].total +"\nTax:" + receipts[j].tax + "\nMerchant:" + receipts[j].merchant;
+        } 
+      }
+    }
+    function getRImg(id) {
+      for(var j = 0;j < receipts.length; j++)
+      {
+        if(receipts[j].key == id)
+        {
+          return receipts[j].scankey;
+        } 
+      }
+    }
+    $(function(){
+     var idx = lunr(function(){ this.field("total"); this.field("merchant"); this.ref("key");}); 
+     $("#search").click(function(){
+        console.log("Results");
+        var src = idx.search($("#query").val());
+        console.log(src);
+        $("#results").html("");
+        for(var i = 0;i < src.length;i++)
+        {
+          var t = $("<td>").html("<img width='50' height = '50' src='/scan/" + getRImg(src[i].ref) + "' />");
+          var s = $("<tr>").append($("<td>").text(getR(src[i].ref)));
+          $("#results").append(s.append(t));
+        }
+             });  
+     $.getJSON('/api/all', function(r) 
+      {
+         receipts = r;//gobal var 
+         console.log("Fetching receipts done");
+         $.each(r, function(i,r)
+                   {
+                     idx.add(r)
+                   });
+      }); 
+    });
+  </script>
+  </body>
+</html>
+{% endautoescape %}
