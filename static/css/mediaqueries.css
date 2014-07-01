@@ -1,0 +1,15 @@
+@media (max-width: 768px)
+{
+	#content{
+		padding:20px; }
+	hr {
+	
+	margin: 50px -20px;
+}
+	/*/*Hide from Smaller Devices*/
+	td.category,
+	td.note,
+	td.receipt{
+		display: none;}
+	
+}

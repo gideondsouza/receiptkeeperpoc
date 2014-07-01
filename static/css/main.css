@@ -1,4 +1,313 @@
+
+/*-----------------------------------------------------------------------------------
+RESET
+Eric Meyer's Reset CSS v2.0 - http://cssreset.com
+-----------------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  font-family: Verdana, Helvetica, sans-serif;
-  background-color: #ccc;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*-----------------------------------------------------------------------------------
+General Layout
+-----------------------------------------------------------------------------------*/
+html {
+	background: #000;
+}
+body {
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	background: #FFF;
+}
+footer, header {
+	padding: 26px;
+}
+header.website {
+	background-color: #282828;
+	color: #FFF;
+	font-weight: 300;
+	font-size: 22px;
+}
+.totalTax {
+}
+.totalTax::after {
+	content: ". ";
+	clear: both;
+	visibility: hidden;
+}
+#main header {
+	background-color: #0F719E;
+	padding: 25px;
+	color: #FFF;
+	font-weight: 300;
+	height: 30px;
+	font-size: 31px;
+}
+#content {
+	padding: 50px;
+}
+.controls {
+	text-align: right;
+}
+footer {
+	background-color: #0F719E;
+	text-align: center;
+}
+footer button a {
+	text-decoration: none;
+	color: #0F719E;
+}
+footer button {
+	background-color: #FFFFFF;
+	color: #0F719E;
+}
+footer button:hover {
+	background-color: #F1F1F1;
+}
+hr {
+	border: none;
+	background: #CCC;
+	height: 1px;
+	display: block;
+	margin: 50px -50px;
+	clear: both;
+}
+/*-----------------------------------------------------------------------------------
+Website Header
+-----------------------------------------------------------------------------------*/
+header h1 a {
+	color: #FFF;
+	text-decoration: none;
+}
+/*-----------------------------------------------------------------------------------
+Columns
+-----------------------------------------------------------------------------------*/
+.one_half, .one_third, .two_third, .three_fourth, .one_fourth, .one_fifth, .two_fifth, .three_fifth, .four_fifth, .one_sixth, .five_sixth {
+	position: relative;
+	margin-right: 4%;
+	float: left;
+	min-height: 1px;
+	height: auto !important;
+}
+.one_fourth {
+	width: 22%;
+}
+.three_fourth {
+	width: 74%;
+}
+.one_fifth {
+	width: 16.8%;
+}
+.two_fifth {
+	width: 37.6%;
+}
+.three_fifth {
+	width: 58.4%;
+}
+.four_fifth {
+	width: 79.2%;
+}
+.one_sixth {
+	width: 13.3333%;
+}
+.three_sixth {
+	width: 47.9998%;
+}
+.five_sixth {
+	width: 82.6665%;
+}
+.last {
+	margin-right: 0 !important;
+	clear: right;
+}
+.clearboth {
+	clear: both;
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	width: 100%;
+}
+.one_half .one_half {
+	margin-right: 8.3333%;
+	width: 45.8333%;
+}
+.one_half .one_third {
+	margin-right: 8.3333%;
+	width: 27.7778%;
+}
+.one_half .two_third {
+	margin-right: 8.3333%;
+	width: 63.8889%;
+}
+.two_third .one_third {
+	margin-right: 6.1224%;
+	width: 29.2517%;
+}
+.two_third .two_third {
+	margin-right: 6.1224%;
+	width: 64.6258%;
+}
+.two_third .one_fourth {
+	margin-right: 6.1224%;
+	width: 20.4082%;
+}
+.one_half, .two_fourth {
+	width: 48%;
+}
+.one_third, .two_sixth {
+	width: 30.6666%;
+}
+.two_third, .four_sixth {
+	width: 65.3332%;
+}
+.two_third:after {
+	clear: both;
+	content: " ";
+}
+/*-----------------------------------------------------------------------------------
+Type
+-----------------------------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 1px rgba(51, 51, 51, 0.2);
+}
+p {
+	margin-top: 12px;
+}
+small {
+	font-size: 0.75em;
+	text-align: center;
+	display: block;
+	margin: 0px;
+}
+em {
+	font-style: italic;
+	color: #B2B2B2;
+}
+a {
+	color: #0F719E;
+}
+a:hover {
+	color: #585858;
+}
+/*-----------------------------------------------------------------------------------
+Forms
+-----------------------------------------------------------------------------------*/
+label {
+	text-transform: uppercase;
+	font-size: 0.85em;
+	font-weight: 600;
+	margin: 5px 0;
+	color: #8A8A8A;
+}
+input[type=text], input[type="date"], input[type=password], input[type="email"], select {
+	padding: 10px 0;
+	width: 100%;
+	margin-bottom: 44px;
+	border-bottom: 1px solid #0F719E;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+/**/
+input + hr {
+	margin-top: 26px;
+}
+input.total {
+	display: block;
+	font-size: 2.8em;
+	width: 200px;
+	font-weight: 100;
+	font-family: "open sans";
+	padding: 0;
+	margin: 0;
+	border: none;
+	color: #0F719E;
+}
+label.tax {
+}
+img.receiptUpload {
+	float: left;
+	margin-right: 20px;
+}
+input.tax {
+	width: 30%;
+	border: none;
+	color: #5B5B5B;
+	margin: 0;
+}
+button, input[type=submit] {
+	padding: 9px;
+	border: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	margin: 0 7px;
+}
+.formActions {
+	text-align: center;
+}
+/*-----------------------------------------------------------------------------------
+Tables
+-----------------------------------------------------------------------------------*/
+table {
+	width: 100%;
+	font-size: 0.75em;
+}
+thead {
+	font-weight: bold;
+	background: #000000;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+tr {
+	border-bottom: thin solid #CCC;
+}
+tr:nth-child(even) {
+	background: #F1F1F1;
+}
+td {
+	padding: 10px;
+	vertical-align: middle;
+}
+tbody td.note, tbody td.category, tbody td.date {
+	color: #393939;
+}
+thead td.total {
+	text-align: right;
+}
+tbody td.note {
+	font-style: italic;
+}
+tbody td.total {
+	font-size: 1.35em;
+	text-align: right;
+	font-weight: 300;
+	color: #0F719E;
+}
+tbody td.merchant {
+	font-weight: 800;
+	font-size: 1.1em;
+	/**/
 }

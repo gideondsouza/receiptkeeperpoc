@@ -2,19 +2,68 @@
 {% autoescape true %}
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
-</head>
-  <body>
-  <button id="search">Search</button>
-  <input id="query" type='text' placeholder='Search Terms Here' />
-|
-  <button><a href='/add'>Add</a></button>
 
-  <a href="{{ url|safe }}">{{ url_linktext }}</a>
-  <div>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Receipt Keeper</title>
+
+<link rel="stylesheet" href="/static/css/main.css" />
+<link rel="stylesheet" href="/static/css/mediaqueries.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+
+<header class="website"> <h1><a href="index.html">ReceiptKeeper</a></h1></header>
+    
+    <div id="main">
+    <header> 
+    	
+        <div class="two_third"> <h2>Receipts </h2> </div>
+    
+        <div class="one_third last controls"> 
+        	<div class="container">
+            	<a href="/add"><img src="/static/images/icon_plus.png" width="39" height="39" alt="Add Receipt"/></a>
+                <a href="settings.html"><img src="/static/images/icon_settings.png" width="39" height="39" alt="Settings"/></a>
+                <a href="#"><img src="http://placehold.it/39x39" width="39" height="39" alt="Logout"/></a>
+        </div></div><!--/END CONTROLS-->
+   
+    </header>
+    
+    <div id="content"> 
+
+
+  
+  <input id="query" type='text' placeholder='Search Terms Here' /><button id="search">Search</button>
+|
+
+  <a href="{{ url|safe }}">{{ url_linktext }}</a> <!-- What is this -->
     <table id="results">
+    <thead>
+            <tr>
+            	<td class="checkbox"><input id="checkAll" name="checkAll" type="checkbox"></td>
+                <td class="receipt">Image</td>
+                <td class="merchant">Merchant</td>
+                <td class="date">Date</td>
+                <td class="category">Category</td>
+                <td class="note">Note</td>
+                <td class="total">Total</td>
+              </tr>
+        </thead>
+            <tbody>
+         
+          <!--Results go here... -->
+          </tbody>
+        
+      </table>        
     </table>
-  </div>
+
+
+  </div></div>
+    <footer><button>Filter</button><button>Export</button></footer>   
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
