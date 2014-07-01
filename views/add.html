@@ -2,35 +2,67 @@
 {% autoescape true %}
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="/static/css/main.css" /> 
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Receipt Keeper</title>
+
+<link rel="stylesheet" href="/static/css/main.css" />
+<link rel="stylesheet" href="/static/css/mediaqueries.css" />
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700" rel="stylesheet" type="text/css">
 
 </head>
-  <body>
+<body>
 
+  <header class="website"> <h1><a href="index.html">ReceiptKeeper</a></h1></header>
+    
+    <div id="main">
+    <header> 
+    	
+        <div class="two_third"> <h2>Add Receipts </h2> </div>
+    
+        <div class="one_third last controls"> 
+        	<div class="container">
+            	
+              <a href="/"><img src="/static/images/icon_cancel.png" width="39" height="39" alt="Cancel"/></a>
+        </div></div><!--/END CONTROLS-->
+   
+    </header>
+    <div id="content" class="addReceipt">
+     
+  <form method="POST" enctype="multipart/form-data" action="{{ upload_url }}">
+  <div class="totalTax">
+  		 <!--I need to figure out how to have an image icon in place of the upload field. So, when the user clicks the image, the upload field is displayed. Once the image is upload, it displays instead of the default icon -->
+        <input id="scan" name="scan" type="file" accept="image/*" />
+      	<label for="total">total:</label><input id="total" name="total" type="number"  />
+     	<label for="tax">tax:</label><input id="tax" name="tax" type="number"  />
+  </div>
+  
   <hr/>
-<a href="/">Home</a>|
-  Receipt
-  <hr/>
-  <form method='POST' enctype="multipart/form-data" action="{{ upload_url }}">
-      <div><label for='total'>total:<label><input id="total" name="total" type="number"  /></div>
-      <div><label for='tax'>tax:<label><input id="tax" name="tax" type="number"  /></div>
-      <div><label for='merchant'>merchant:<label><input id="merchant" name="merchant" type="text"/></div>
-      <div><label for='date'>date:<label><input id="date" name="date" type="date"  /></div>
-      <div><label for='scan'>scan:<label><input id="scan" name="scan" type="file" accept="image/*" /></div>
-      <div>
-      <label for='category'>category</label>
-      <select name="category" id='category'>
-        <option value="rent">Rent</option> 
-        <option value="supplies" >Supplies</option>
-        <option value="fuel">Fuel</option>
-      </select> 
-      </div>
-      <div><label for='note'>note:<label><input id="note" name="note" type="textarea"/></div>
-
-
+      	<label for="merchant">merchant:</label>
+		<input id="merchant" name="merchant" type="text"/>
+      	
+        <label for="date">date:</label>
+		<input id="date" name="date" type="date"  />
       
-      <input type="submit" value="Save">
-    </form>
+     	<label for="category">category</label>
+      	<select name="category" id="category">
+            <option value="rent">Rent</option> 
+            <option value="supplies" >Supplies</option>
+            <option value="fuel">Fuel</option>
+      	</select> 
+      
+      <label for="note">Note:<label>
+      <input id="note" name="note" type="textarea"/>
+
+  </div></div>
+    <footer>
+   	  <button type="submit"  value="save">Save</button>
+    	
+    </form></footer>
+      
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
