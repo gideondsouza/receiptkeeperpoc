@@ -5,6 +5,8 @@ from google.appengine.ext import ndb
 
 from base import base_handlers
 from base import auth_helper
+from models import receipt
+
 
 class Home(base_handlers.BaseHandler):
     @auth_helper.user_required
@@ -19,5 +21,7 @@ class Home(base_handlers.BaseHandler):
         template_values = {
             'url': url,
             'url_linktext': url_linktext,
+            'greetings': receipt.Receipt.get_all(),
         }
+        # logging.info(receipt.Receipt.get_all())
         self.render_template("home.html", template_values)

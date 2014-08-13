@@ -11,5 +11,5 @@ app = webapp2.WSGIApplication([
     ('/scan/([^/]+)?', receipt_controller.Scan),
     ('/upload', receipt_controller.Add),
     ('/view', receipt_controller.View),  # add the id route here
-    ('/api/all', api_controller.ApiAll),
+    ('/api/all', api_controller.ApiAll),  # remove api search thing.
 ], debug=True)

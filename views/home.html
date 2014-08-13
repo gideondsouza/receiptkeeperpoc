@@ -53,10 +53,18 @@
               </tr>
         </thead>
             <tbody>
-         
-          <!--Results go here... -->
+            {% for r in greetings %}
+             <tr>
+                  <td></td>
+                  <td><img width="100px" height="100px" src="/scan/{{ r.scankey }}"/></td>
+                  <td>{{ r.merchant }}</td>
+                  <td>{{ r.date.strftime("%d/%b/%Y") }}</td>
+                  <td>{{ r.category }}</td>
+                  <td>{{ r.note }}</td>
+                  <td>{{ r.total }}</td>
+            </tr>
+            {% endfor %}
           </tbody>
-        
       </table>        
     </table>
 
